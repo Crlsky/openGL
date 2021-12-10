@@ -44,7 +44,7 @@ const char *fragmentShaderSource = "#version 410 core\n"
     "in vec3 color;\n"
     "void main()\n"
     "{\n"
-    "    FragColor = vec4(0.1f, 0.5f, 0.9f, 1.0f);\n"
+    "    FragColor = vec4(color, 1.0f);\n"
     "}\0";
 
 // callback resize
@@ -89,64 +89,64 @@ int main(int argc, const char * argv[]) {
     float vertices[] = {
         
 // FRONT CUBE WALL
-    //  left bottom rectangle
-        -0.1f,  -0.2f, 0.0f,  // top right
-        -0.5f,  -0.2f, 0.0f,  // top left
-        -0.5f, -0.5f, 0.0f,  // bottom left
+    //  left bottom rectangle   //color
+        -0.1f,  -0.2f, 0.0f,    1.0f, 0.0f, 0.0f, // top right
+        -0.5f,  -0.2f, 0.0f,    1.0f, 0.0f, 0.0f, // top left
+        -0.5f, -0.5f, 0.0f,     1.0f, 0.0f, 0.0f,// bottom left
         
-        -0.1f,  -0.2f, 0.0f,  // top right
-        -0.5f,  -0.5f, 0.0f,  // bottom left
-        -0.1f, -0.5f, 0.0f,  // bottom right
+        -0.1f,  -0.2f, 0.0f,    1.0f, 0.0f, 0.0f,// top right
+        -0.5f,  -0.5f, 0.0f,    1.0f, 0.0f, 0.0f,// bottom left
+        -0.1f, -0.5f, 0.0f,     1.0f, 0.0f, 0.0f,// bottom right
         
     // right bottom rectangle
-        0.5f,  -0.2f, 0.0f,  // top right
-        0.1f,  -0.2f, 0.0f,  // top left
-        0.1f, -0.5f, 0.0f,  // bottom left
+        0.5f,  -0.2f, 0.0f,     1.0f, 0.0f, 0.0f,// top right
+        0.1f,  -0.2f, 0.0f,     1.0f, 0.0f, 0.0f,// top left
+        0.1f, -0.5f, 0.0f,      1.0f, 0.0f, 0.0f,// bottom left
 
-        0.5f, -0.2f, 0.0f,  // top right
-        0.1f, -0.5f, 0.0f,  // bottom left
-        0.5f, -0.5f, 0.0f,  // bottom right
+        0.5f, -0.2f, 0.0f,      1.0f, 0.0f, 0.0f,// top right
+        0.1f, -0.5f, 0.0f,      1.0f, 0.0f, 0.0f,// bottom left
+        0.5f, -0.5f, 0.0f,      1.0f, 0.0f, 0.0f,// bottom right
     // top rectangle
-        0.5f,  0.5f, 0.0f,  // top right
-        -0.5f,  0.5f, 0.0f,  // top left
-        -0.5f, -0.2f, 0.0f,  // bottom left
+        0.5f,  0.5f, 0.0f,      1.0f, 0.0f, 0.0f,// top right
+        -0.5f,  0.5f, 0.0f,     1.0f, 0.0f, 0.0f,// top left
+        -0.5f, -0.2f, 0.0f,     1.0f, 0.0f, 0.0f,// bottom left
         
-        0.5f, 0.5f, 0.0f,  // top right
-        -0.5f, -0.2f, 0.0f,  // bottom left
-        0.5f, -0.2f, 0.0f,  // bottom right
+        0.5f, 0.5f, 0.0f,       1.0f, 0.0f, 0.0f,// top right
+        -0.5f, -0.2f, 0.0f,     1.0f, 0.0f, 0.0f,// bottom left
+        0.5f, -0.2f, 0.0f,      1.0f, 0.0f, 0.0f,// bottom right
         
 // LEFT CUBE WALL
-        -0.5f, 0.5f, -0.5f, // top left
-        -0.5f, 0.5f, 0.0f, // top rigtt
-        -0.5f, -0.5f, -0.5f, // bottom left
+        -0.5f, 0.5f, -0.5f,     1.0f, 0.0f, 0.0f,// top left
+        -0.5f, 0.5f, 0.0f,      1.0f, 0.0f, 0.0f,// top rigtt
+        -0.5f, -0.5f, -0.5f,    1.0f, 0.0f, 0.0f,// bottom left
         
-        -0.5f, -0.5f, -0.5f, // bottom left
-        -0.5f, 0.5f, 0.0f, // top rigtt
-        -0.5f, -0.5f, 0.0f, // bottom right
+        -0.5f, -0.5f, -0.5f,    1.0f, 0.0f, 0.0f,// bottom left
+        -0.5f, 0.5f, 0.0f,      1.0f, 0.0f, 0.0f,// top rigtt
+        -0.5f, -0.5f, 0.0f,     1.0f, 0.0f, 0.0f,// bottom right
         
 // RIGHT CUBE WALL
-        0.5f, 0.5f, 0.0f, // top left
-        0.5f, 0.5f, -0.5f, // top right
-        0.5, -0.5, 0, // bottom left
+        0.5f, 0.5f, 0.0f,       1.0f, 0.0f, 0.0f,// top left
+        0.5f, 0.5f, -0.5f,      1.0f, 0.0f, 0.0f,// top right
+        0.5, -0.5, 0,           1.0f, 0.0f, 0.0f,// bottom left
 
-        0.5f, -0.5f, 0.0f, // bottom left
-        0.5f, -0.5f, -0.5f, // bottom right
-        0.5f, 0.5f, -0.5f, // top right
+        0.5f, -0.5f, 0.0f,      1.0f, 0.0f, 0.0f,// bottom left
+        0.5f, -0.5f, -0.5f,     1.0f, 0.0f, 0.0f,// bottom right
+        0.5f, 0.5f, -0.5f,      1.0f, 0.0f, 0.0f,// top right
 // ROOF
         // front
-        0.0f, 1.0f, 0.0f, // peak
-        -0.5f, 0.5f, 0.0f, // bottom left
-        0.5f, 0.5f, 0.0f, // bottom rigth
+        0.0f, 1.0f, 0.0f,       0.0f, 1.0f, 0.0f,// peak
+        -0.5f, 0.5f, 0.0f,      0.0f, 1.0f, 0.0f,// bottom left
+        0.5f, 0.5f, 0.0f,       0.0f, 1.0f, 0.0f,// bottom rigth
         
         // left
-        0.0f, 1.0f, 0.0f, // peak
-        -0.5f, 0.5f, -0.5f, // bottom left
-        -0.5f, 0.5f, 0.0f, // bottom rigth
+        0.0f, 1.0f, 0.0f,       0.0f, 1.0f, 0.0f,// peak
+        -0.5f, 0.5f, -0.5f,     0.0f, 1.0f, 0.0f,// bottom left
+        -0.5f, 0.5f, 0.0f,      0.0f, 1.0f, 0.0f,// bottom rigth
         
         // right
-        0.0f, 1.0f, 0.0f, // peak
-        0.5f, 0.5f, -0.5f, // bottom left
-        0.5f, 0.5f, 0.0f, // bottom rigth
+        0.0f, 1.0f, 0.0f,       0.0f, 1.0f, 0.0f,// peak
+        0.5f, 0.5f, -0.5f,      0.0f, 1.0f, 0.0f,// bottom left
+        0.5f, 0.5f, 0.0f,       0.0f, 1.0f, 0.0f,// bottom rigth
         
     };
     
@@ -190,13 +190,12 @@ int main(int argc, const char * argv[]) {
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
     // position attribute
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
     
-    
-    
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
-    glEnableVertexAttribArray(0);
+    // color atribute
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3* sizeof(float)));
+    glEnableVertexAttribArray(1);
     
     // render loop
     while(!glfwWindowShouldClose(window)){
