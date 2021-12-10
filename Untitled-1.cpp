@@ -206,7 +206,7 @@ int main(int argc, const char * argv[]) {
         
         glUseProgram(shaderProgram);
         
-        glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)screenWidth / (float)screenHeight, 0.1f, 100.0f);
+        glm::mat4 projection = glm::perspective(45.0f, (float)screenWidth / (float)screenHeight, 0.1f, 100.0f);
         glm::mat4 view = glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp);
         glm::mat4 model = glm::mat4(1.0f);
 
